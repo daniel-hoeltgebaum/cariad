@@ -10,6 +10,7 @@ import Dataset from "./pages/dataset";
 import Tutorial from "./pages/tutorial";
 import Download from "./pages/download";
 import { ThemeProvider } from "./components/theme/theme-provider";
+import Team from "./pages/team";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/team",
-        element: <Tutorial />,
+        element: <Team />,
       },
       {
         path: "/download",

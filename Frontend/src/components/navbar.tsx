@@ -74,7 +74,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-background border-border space-y-2 border-t px-4 pt-2 pb-3 shadow-sm md:hidden">
+        <div className="bg-background border-border flex flex-col space-y-2 border-t px-4 pt-2 pb-3 shadow-sm md:hidden">
           <NavLink to="/sensor-setup" className={navLinkClasses}>
             Sensor Setup
           </NavLink>

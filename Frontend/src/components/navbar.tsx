@@ -1,42 +1,49 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { ModeToggle } from "./theme/mode-toggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
+    isActive
+      ? "text-primary font-medium transition-colors"
+      : "text-muted-foreground hover:text-primary transition-colors";
+
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-background border-border border-b shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 justify-between">
-          <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold text-gray-800">
-              MyLogo
-            </Link>
-          </div>
-          <div className="hidden items-center space-x-8 md:flex">
-            <Link
-              to="/sensor-setup"
-              className="text-gray-700 hover:text-gray-900"
-            >
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="text-foreground text-xl font-bold">
+            MyLogo
+          </Link>
+
+          {/* Navigation (Desktop) */}
+          <div className="hidden flex-1 items-center justify-center space-x-8 md:flex">
+            <NavLink to="/sensor-setup" className={navLinkClasses}>
               Sensor Setup
-            </Link>
-            <Link to="/dataset" className="text-gray-700 hover:text-gray-900">
+            </NavLink>
+            <NavLink to="/dataset" className={navLinkClasses}>
               Dataset
-            </Link>
-            <Link to="/tutorial" className="text-gray-700 hover:text-gray-900">
+            </NavLink>
+            <NavLink to="/tutorial" className={navLinkClasses}>
               Tutorial
-            </Link>
-            <Link to="/team" className="text-gray-700 hover:text-gray-900">
+            </NavLink>
+            <NavLink to="/team" className={navLinkClasses}>
               Team
-            </Link>
-            <Link to="/download" className="text-gray-700 hover:text-gray-900">
+            </NavLink>
+            <NavLink to="/download" className={navLinkClasses}>
               Download
-            </Link>
+            </NavLink>
           </div>
-          <div className="flex items-center md:hidden">
+
+          {/* Rechts: Toggle + Mobile Button */}
+          <div className="flex items-center space-x-4">
+            <ModeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 hover:text-gray-900 focus:outline-none"
+              className="text-foreground hover:text-primary focus:outline-none md:hidden"
             >
               <svg
                 className="h-6 w-6"
@@ -65,35 +72,24 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="space-y-1 bg-white px-2 pt-2 pb-3 shadow-md md:hidden">
-          <Link
-            to="/sensor-setup"
-            className="block text-gray-700 hover:text-gray-900"
-          >
+        <div className="bg-background border-border space-y-2 border-t px-4 pt-2 pb-3 shadow-sm md:hidden">
+          <NavLink to="/sensor-setup" className={navLinkClasses}>
             Sensor Setup
-          </Link>
-          <Link
-            to="/dataset"
-            className="block text-gray-700 hover:text-gray-900"
-          >
+          </NavLink>
+          <NavLink to="/dataset" className={navLinkClasses}>
             Dataset
-          </Link>
-          <Link
-            to="/tutorial"
-            className="block text-gray-700 hover:text-gray-900"
-          >
+          </NavLink>
+          <NavLink to="/tutorial" className={navLinkClasses}>
             Tutorial
-          </Link>
-          <Link to="/team" className="block text-gray-700 hover:text-gray-900">
+          </NavLink>
+          <NavLink to="/team" className={navLinkClasses}>
             Team
-          </Link>
-          <Link
-            to="/download"
-            className="block text-gray-700 hover:text-gray-900"
-          >
+          </NavLink>
+          <NavLink to="/download" className={navLinkClasses}>
             Download
-          </Link>
+          </NavLink>
         </div>
       )}
     </nav>

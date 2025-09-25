@@ -1,6 +1,6 @@
 export default function Team() {
   return (
-    <div className="bg-background flex min-h-screen flex-col items-center justify-start px-4 py-8 text-center">
+    <div className="bg-background flex min-h-screen flex-col items-center justify-start px-4 text-center">
       {/* Überschrift */}
       <h1 className="inter-bold mb-6 text-5xl sm:text-6xl md:text-7xl">Team</h1>
       {/* Fließtext */}

@@ -11,7 +11,7 @@ export default function Navbar() {
       : "text-muted-foreground hover:text-primary transition-colors";
 
   return (
-    <nav className="bg-background border-border border-b shadow-sm">
+    <nav className="bg-background border-border mb-5 border-b shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}

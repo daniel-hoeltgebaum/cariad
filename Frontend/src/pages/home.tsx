@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Carousel from "../components/carousel";
+import PlaybackPage from "@/components/playbackPage";
 
 const carousel1 = [
   { src: "src/assets/images/dynamic_objects.jpg", alt: "dynamic objects" },
@@ -145,6 +146,10 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section>
+        <PlaybackPage />
       </section>
 
       <section className="mb-8">

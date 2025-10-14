@@ -7,10 +7,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/home";
 import SensorSetup from "./pages/sensorSetup";
 import Dataset from "./pages/dataset";
-import Tutorial from "./pages/tutorial";
 import Download from "./pages/download";
 import { ThemeProvider } from "./components/theme/theme-provider";
 import Team from "./pages/team";
+import Visualization from "./pages/visualization";
+import License from "./pages/license";
 
 const queryClient = new QueryClient();
 
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
         element: <Dataset />,
       },
       {
-        path: "/tutorial",
-        element: <Tutorial />,
+        path: "/visualization",
+        element: <Visualization />,
       },
       {
         path: "/team",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/download",
         element: <Download />,
+      },
+      {
+        path: "/license",
+        element: <License />,
       },
     ],
   },

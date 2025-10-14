@@ -1,6 +1,10 @@
 import { useRef } from "react";
 
-export default function PlaybackPage() {
+interface PlaybackPageProps {
+  videoSrc?: string;
+}
+
+export default function PlaybackPage({ videoSrc = "src/assets/videos/rerun_carmiano.mp4" }: PlaybackPageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleSeek = (time: number) => {
@@ -15,7 +19,7 @@ export default function PlaybackPage() {
       <div className="w-full">
         <video
           ref={videoRef}
-          src="src/assets/videos/rerun_carmiano.mp4"
+          src={videoSrc}
           controls
           className="w-full rounded-xl shadow"
         />
